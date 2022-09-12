@@ -33,6 +33,8 @@ import org.apache.log4j.Logger;
 public class RangerConfiguration extends Configuration {
 	private static final Logger LOG = Logger.getLogger(RangerConfiguration.class);
 
+	private static volatile RangerConfiguration config;
+
 	protected RangerConfiguration() {
 		super(false);
 	}
@@ -99,4 +101,18 @@ public class RangerConfiguration extends Configuration {
 		}
 		return lurl;
 	}
+
+	public static RangerConfiguration getInstance() {
+		RangerConfiguration result = config;
+		if (result == null) {
+			synchronized (RangerConfiguration.class) {
+				result = config;
+				if (result == null) {
+					config = result = new RangerConfiguration();
+				}
+			}
+		}
+		return result;
+	}
+
 }
