@@ -18,8 +18,8 @@
  */
 package org.apache.ranger.authorization.presto.authorizer;
 
-import io.airlift.configuration.Config;
-import io.airlift.configuration.ConfigDescription;
+import com.facebook.airlift.configuration.Config;
+import com.facebook.airlift.configuration.ConfigDescription;
 
 public class RangerConfig {
   private String keytab;

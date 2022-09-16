@@ -37,7 +37,7 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.prestosql</groupId>
+            <groupId>com.facebook.presto</groupId>
             <artifactId>presto-spi</artifactId>
             <version>${presto.version}</version>
         </dependency>
@@ -47,19 +47,19 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.airlift</groupId>
+            <groupId>com.facebook.airlift</groupId>
             <artifactId>bootstrap</artifactId>
             <version>${presto.airlift.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>io.airlift</groupId>
+            <groupId>com.facebook.airlift</groupId>
             <artifactId>log</artifactId>
             <version>${presto.airlift.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>io.airlift</groupId>
+            <groupId>com.facebook.airlift</groupId>
             <artifactId>configuration</artifactId>
             <version>${presto.airlift.version}</version>
         </dependency>

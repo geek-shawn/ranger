@@ -13,20 +13,15 @@
  */
 package org.apache.ranger.authorization.presto.authorizer;
 
-import io.prestosql.spi.Plugin;
-import io.prestosql.spi.security.SystemAccessControlFactory;
-
-import java.util.ArrayList;
+import com.facebook.presto.spi.Plugin;
+import com.facebook.presto.spi.security.SystemAccessControlFactory;
+import com.google.common.collect.ImmutableList;
 
 public class PrestoRangerPlugin
         implements Plugin
 {
     @Override
-    public Iterable<SystemAccessControlFactory> getSystemAccessControlFactories()
-    {
-        ArrayList<SystemAccessControlFactory> list = new ArrayList<>();
-        SystemAccessControlFactory factory = new RangerSystemAccessControlFactory();
-        list.add(factory);
-        return list;
+    public Iterable<SystemAccessControlFactory> getSystemAccessControlFactories() {
+        return ImmutableList.of(new RangerSystemAccessControlFactory());
     }
 }
