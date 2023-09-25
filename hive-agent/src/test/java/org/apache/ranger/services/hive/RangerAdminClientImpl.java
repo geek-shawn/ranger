@@ -22,8 +22,13 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.util.List;
 
+import org.apache.hadoop.conf.Configuration;
 import org.apache.ranger.admin.client.RangerAdminClient;
+import org.apache.ranger.plugin.model.RangerRole;
 import org.apache.ranger.plugin.util.GrantRevokeRequest;
+import org.apache.ranger.plugin.util.GrantRevokeRoleRequest;
+import org.apache.ranger.plugin.util.RangerRoles;
+import org.apache.ranger.plugin.util.RangerUserStore;
 import org.apache.ranger.plugin.util.ServicePolicies;
 import org.apache.ranger.plugin.util.ServiceTags;
 import org.slf4j.Logger;
@@ -51,6 +56,11 @@ public class RangerAdminClientImpl implements RangerAdminClient {
         this.gson = gson;
     }
 
+    @Override
+    public void init(String serviceName, String appId, String configPropertyPrefix, Configuration config) {
+
+    }
+
     public ServicePolicies getServicePoliciesIfUpdated(long lastKnownVersion, long lastActivationTimeInMillis) throws Exception {
 
         String basedir = System.getProperty("basedir");
@@ -62,6 +72,46 @@ public class RangerAdminClientImpl implements RangerAdminClient {
         byte[] cacheBytes = Files.readAllBytes(cachePath);
 
         return gson.fromJson(new String(cacheBytes), ServicePolicies.class);
+    }
+
+    @Override
+    public RangerRoles getRolesIfUpdated(long lastKnownRoleVersion, long lastActivationTimeInMills) throws Exception {
+        return null;
+    }
+
+    @Override
+    public RangerRole createRole(RangerRole request) throws Exception {
+        return null;
+    }
+
+    @Override
+    public void dropRole(String execUser, String roleName) throws Exception {
+
+    }
+
+    @Override
+    public List<String> getAllRoles(String execUser) throws Exception {
+        return null;
+    }
+
+    @Override
+    public List<String> getUserRoles(String execUser) throws Exception {
+        return null;
+    }
+
+    @Override
+    public RangerRole getRole(String execUser, String roleName) throws Exception {
+        return null;
+    }
+
+    @Override
+    public void grantRole(GrantRevokeRoleRequest request) throws Exception {
+
+    }
+
+    @Override
+    public void revokeRole(GrantRevokeRoleRequest request) throws Exception {
+
     }
 
     public void grantAccess(GrantRevokeRequest request) throws Exception {
@@ -85,6 +135,11 @@ public class RangerAdminClientImpl implements RangerAdminClient {
     }
 
     public List<String> getTagTypes(String tagTypePattern) throws Exception {
+        return null;
+    }
+
+    @Override
+    public RangerUserStore getUserStoreIfUpdated(long lastKnownUserStoreVersion, long lastActivationTimeInMillis) throws Exception {
         return null;
     }
 

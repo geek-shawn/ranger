@@ -53,7 +53,6 @@ import org.apache.hadoop.hive.ql.security.authorization.plugin.HiveAuthzPluginEx
 import org.apache.hadoop.hive.ql.security.authorization.plugin.HiveAuthzSessionContext;
 import org.apache.hadoop.hive.ql.security.authorization.plugin.HiveMetastoreClientFactory;
 import org.apache.hadoop.hive.ql.security.authorization.plugin.HiveOperationType;
-import org.apache.hadoop.hive.ql.security.authorization.plugin.HivePolicyProvider;
 import org.apache.hadoop.hive.ql.security.authorization.plugin.HivePrincipal;
 import org.apache.hadoop.hive.ql.security.authorization.plugin.HivePrivilege;
 import org.apache.hadoop.hive.ql.security.authorization.plugin.HivePrivilegeInfo;
@@ -621,11 +620,6 @@ public class RangerHiveAuthorizer extends RangerHiveAuthorizerBase {
 	@Override
 	public boolean needTransform() {
 		return true; // TODO: derive from the policies
-	}
-
-	@Override
-	public HivePolicyProvider getHivePolicyProvider() throws HiveAuthzPluginException {
-		return null;
 	}
 
 	private RangerAccessResult getDataMaskResult(RangerHiveAccessRequest request) {
